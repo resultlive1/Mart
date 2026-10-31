@@ -1,0 +1,10 @@
+{
+  "name": "super-mart",
+  "version": "2.0.0",
+  "description": "Super Mart shopping site: Node.js + PostgreSQL",
+  "main": "server.js",
+  "private": true,
+  "engines": { "node": ">=18" },
+  "scripts": { "start": "node server.js", "test": "node test.js" },
+  "dependencies": { "pg": "^8.13.0" }
+}

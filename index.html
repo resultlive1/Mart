@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Super Mart</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <div class="bar">
+    <button class="logo" id="home" aria-label="Super Mart home">Super<span>Mart</span></button>
+    <form class="search" id="sf" role="search"><input id="q" type="search" placeholder="Search for products" aria-label="Search products" maxlength="60" autocomplete="off"><button type="submit">Search</button></form>
+    <button class="cartbtn" id="adm" type="button" hidden>Admin</button>
+    <button class="cartbtn" id="acct" type="button">Login</button>
+    <button class="cartbtn" id="cartOpen" aria-label="Open cart">Cart <b id="cnt">0</b></button>
+  </div>
+  <nav class="cats" id="cats" aria-label="Categories"></nav>
+</header>
+<main>
+  <section class="hero"><h1>Everything you need, delivered.</h1><p>Free delivery over ₹499 · Easy 7-day returns · Cash on delivery</p></section>
+  <div class="tools"><span id="meta" aria-live="polite"></span>
+    <label class="inl">Sort <select id="sort" class="auto"><option value="rel">Relevance</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option><option value="rt">Rating</option></select></label></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<dialog id="cartD" aria-labelledby="ct"><div class="dh"><h2 id="ct">Your cart</h2><button class="x" data-close aria-label="Close">×</button></div>
+  <div class="db" id="cartB"></div>
+  <div class="df"><div><div class="sum"><span>Total&nbsp;</span><b id="tot">₹0</b></div></div><button class="btn" id="toCheckout">Checkout</button></div></dialog>
+
+<dialog id="coD" aria-labelledby="cot"><div class="dh"><h2 id="cot">Delivery details</h2><button class="x" data-close aria-label="Close">×</button></div>
+  <form id="coF" novalidate><div class="db">
+    <label for="nm">Full name</label><input id="nm" maxlength="60" autocomplete="name"><div class="err" id="e-nm"></div>
+    <label for="ph">Mobile number</label><input id="ph" inputmode="numeric" maxlength="10" autocomplete="tel-national"><div class="err" id="e-ph"></div>
+    <label for="pn">PIN code</label><input id="pn" inputmode="numeric" maxlength="6" autocomplete="postal-code"><div class="err" id="e-pn"></div>
+    <label for="ad">Address</label><textarea id="ad" rows="3" maxlength="200" autocomplete="street-address"></textarea><div class="err" id="e-ad"></div>
+    <label for="py">Payment</label><select id="py"><option value="Cash on delivery">Cash on delivery</option><option value="UPI">UPI (pay now)</option></select>
+    <p class="note">Payment is not connected yet. Orders are saved, but no money is taken.</p>
+  </div><div class="df"><b id="coT"></b><button class="btn" type="submit">Place order</button></div></form></dialog>
+
+
+<dialog id="auD" aria-labelledby="aut"><div class="dh"><h2 id="aut">Log in</h2><button class="x" data-close aria-label="Close">×</button></div>
+  <form id="auF" novalidate><div class="db">
+    <div id="nmW"><label for="an">Full name</label><input id="an" maxlength="60" autocomplete="name"></div>
+    <label for="ae">Email</label><input id="ae" type="email" maxlength="120" autocomplete="email">
+    <label for="ap">Password</label><input id="ap" type="password" maxlength="100" autocomplete="current-password">
+    <div class="err" id="e-au" role="alert"></div>
+    <p class="note" id="auN">New here? <button type="button" class="link" id="auT">Create an account</button></p>
+  </div><div class="df"><span></span><button class="btn" type="submit" id="auB">Log in</button></div></form></dialog>
+
+<dialog id="ordD" aria-labelledby="ot"><div class="dh"><h2 id="ot">My orders</h2><button class="x" data-close aria-label="Close">×</button></div>
+  <div class="db" id="ordB"></div>
+  <div class="df"><span id="ordU" class="note"></span><button class="btn alt" id="out" type="button">Log out</button></div></dialog>
+
+<dialog id="admD" aria-labelledby="adt"><div class="dh"><h2 id="adt">Admin</h2><button class="x" data-close aria-label="Close">×</button></div>
+  <nav class="cats" id="admT" aria-label="Admin sections"></nav><div class="db" id="admB"></div></dialog>
+
+<dialog id="okD" aria-labelledby="okt"><div class="dh"><h2 id="okt">Order placed</h2><button class="x" data-close aria-label="Close">×</button></div>
+  <div class="db"><p>Thank you, <b id="okN"></b>. Your order <b id="okId"></b> will reach you in 3–5 days.</p><div id="okA"></div></div>
+  <div class="df"><span></span><button class="btn" data-close>Continue shopping</button></div></dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="/app.js"></script>
+</body>
+</html>
